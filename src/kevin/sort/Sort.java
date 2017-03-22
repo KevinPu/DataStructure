@@ -7,6 +7,7 @@ package kevin.sort;
 
 public class Sort {
 
+	//冒泡排序
 	public static <T extends Comparable<? super T>> void bubbleSort(T[] a) {
 		int N = a.length;
 		boolean sorted = false;
@@ -20,7 +21,7 @@ public class Sort {
 			}
 		}
 	}
-
+	//选择排序
 	public static <T extends Comparable<? super T>> void selectSort(T[] a) {
 		int N = a.length;
 		for (int i = 0; i < N; i++) {
@@ -31,7 +32,7 @@ public class Sort {
 			exch(a, i, min);
 		}
 	}
-
+	//插入排序
 	public static <T extends Comparable<? super T>> void insertSort(T[] a) {
 		int N = a.length;
 		int j;
@@ -44,6 +45,7 @@ public class Sort {
 		}
 	}
 
+	// 希尔排序
 	public static <T extends Comparable<? super T>> void shellSort(T[] a) {
 		int N = a.length;
 		int h = 1;
@@ -59,6 +61,7 @@ public class Sort {
 		}
 	}
 
+	// 归并排序
 	@SuppressWarnings("unchecked")
 	public static <T extends Comparable<? super T>> void mergeSort(T[] a) {
 

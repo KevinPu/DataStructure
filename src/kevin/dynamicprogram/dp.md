@@ -12,18 +12,25 @@
  
  ### 例题 1 钢条切割 
  
- 给定一段长度为 n 英尺的钢条和一个价格表 p<sub>i</sub>(i=1, 2, ..., n)，
- 求切割钢铁方案，使销售收益 <sub>n</sub> 最大。
- R
+ 给定一段长度为 n 英尺的钢条和一个价格表，表示出售一段长度为 i 英尺的钢条的价格为 p<sub>i</sub>(i=1, 2, ..., n)，
+ 求切割钢铁方案，使销售收益 $R_{n}$ 最大。
+ 
  价格表样例：
  
  | 长度 i | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
  |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
  | 价格pi | 1 | 5 | 8 | 9 | 10 | 17 | 17	| 20 | 24 | 30 
 
+#### 算法思路
+
+假设在距离钢条左端 k(1 <= k <= n)处切割，那么最大收益表示为：
+
+
+#### 代码实现
+
 + 递归解法, 时间复杂度 O(2^n)
 
-```java
+```
 public static int cutRod(int[] p, int n) {
     if (n == 0) return 0;
     int max = 0;
@@ -35,7 +42,7 @@ public static int cutRod(int[] p, int n) {
 }
 ```
 + 带备忘录的自顶向下法, 时间复杂度 O(n^2)
-```java
+```
 public static int memoCutRod(int[] p, int n) {
     int[] r = new int[n + 1];
     return memoCutRodAux(p, n, r);
@@ -52,7 +59,7 @@ private static int memoCutRodAux(int[] p, int n, int[] r) {
 }
 ```
 + 自底向上法, 时间复杂度 O(n^2)
-```java
+```
 public static int bottomUpcutRod(int[] p, int n) {
     int[] r = new int[n + 1];
     if (n == 0) return 0;
